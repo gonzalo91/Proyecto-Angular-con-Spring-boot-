@@ -1,0 +1,109 @@
+<app-content-header title="Materia"></app-content-header>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-primary collapsed-card">
+            <div class="card-header">
+                <h3 class="card-title">Filtrar por...</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <form role="form">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label>Nombre</label>
+                                <input type="text" class="form-control" placeholder="...">
+                            </div>
+                        </div>
+                                              
+                    </div>                    
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label>Clave</label>
+                                <input type="text" class="form-control" placeholder="...">
+                            </div>
+                        </div>  
+                        <div class="col-sm-4">
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label>Estatus</label>
+                                <select class="custom-select">
+                                    <option>Todos</option>
+                                    <option>Activo</option>
+                                    <option>Inactivo</option>                                    
+                                </select>
+                            </div>
+                        </div>                        
+                        <div class="col-sm-4">
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label class="text-white">.</label>
+                                <button class="btn btn-success w-100">Buscar</button>
+                            </div>
+                        </div>                        
+                    </div>                    
+                    
+                </form>
+            </div>
+            <!-- /.card-body -->
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Listado</h3>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th style="width: 10px">#</th>
+                            <th>Nombre</th>
+                            <th>Clave</th>                            
+                            <th>Estatus</th>                            
+                            <th>Accion</th>                            
+                                                      
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1.</td>                                                        
+                            <td>Update software</td>
+                            <td>
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-danger">55%</span></td>
+                            <td>
+                                <button class="btn btn-success">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </button> / 
+                                <button class="btn btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                </button> 
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                    <li class="page-item"><a class="page-link" href="#">«</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">»</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

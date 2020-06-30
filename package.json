@@ -19,10 +19,18 @@
     "@angular/platform-browser": "~9.1.9",
     "@angular/platform-browser-dynamic": "~9.1.9",
     "@angular/router": "~9.1.9",
+    "angular-admin-lte": "^2.0.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
+  "styles": [
+    "node_modules/bootstrap-css-only/css/bootstrap.min.css",
+    "node_modules/font-awesome/css/font-awesome.css", 
+    "node_modules/ionicons/css/ionicons.css", 
+    "node_modules/admin-lte-css/dist/css/AdminLTE.css",
+    "node_modules/admin-lte-css/dist/css/skins/_all-skins.css"
+  ],
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.7",
     "@angular/cli": "~9.1.7",
