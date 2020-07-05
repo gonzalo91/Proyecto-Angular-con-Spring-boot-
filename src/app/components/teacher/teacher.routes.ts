@@ -1,10 +1,25 @@
+
+
 import { Routes } from '@angular/router';
-import { HomeComponent } from '../home/home.component';
+import { TeacherComponent } from './teacher.component';
+import { ActionTeacherComponent } from './action-teacher/action-teacher.component';
+
+
+
 
 
 export const TEACHER_ROUTES : Routes = [
-
-    { path : 'nuevo', component: HomeComponent},
-    { path : ':id/editar', component: HomeComponent},
+    {
+        path :"maestros",    
+        component: TeacherComponent,       
+    },
+    {
+      path :"maestros/editar/:id",    
+      component: ActionTeacherComponent,    
+    },
+    {
+      path :"maestros/nuevo",    
+      component: ActionTeacherComponent,    
+    },
 
 ]

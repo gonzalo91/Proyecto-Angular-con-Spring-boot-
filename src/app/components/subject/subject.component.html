@@ -1,4 +1,4 @@
-<app-content-header title="Materia"></app-content-header>
+<app-content-header title="Materia" model="materias"></app-content-header>
 
 <div class="row">
     <div class="col-md-12">
@@ -84,12 +84,11 @@
                             </td>
                             <td><span class="badge bg-danger">55%</span></td>
                             <td>
-                                <button class="btn btn-success">
+                                
+                                <a [routerLink]="[ '/materias', 'editar', 2 ]" class="btn btn-success">
                                     <i class="fas fa-pencil-alt"></i>
-                                </button> / 
-                                <button class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                </button> 
+                                </a> / 
+                                <app-delete-resource resource="subject/delete/1"></app-delete-resource>
                             </td>
                         </tr>
                     </tbody>

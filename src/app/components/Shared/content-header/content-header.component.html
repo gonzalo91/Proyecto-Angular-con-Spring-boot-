@@ -3,7 +3,8 @@
       <div class="row mb-2">
         <div class="col-sm-6">
           <h1 class="m-0 text-dark">
-            {{ title }} <a class="btn btn-success text-white" [routerLink]="[getRouter().url, 'nuevo']">Nuevo</a>            
+            {{ title }} 
+            <a *ngIf="model" class="btn btn-success text-white" [routerLink]="['/'+model,  'nuevo']">Nuevo</a>            
           </h1>          
         </div>   
         <div class="offset-sm-4 col-sm-2 text-right">

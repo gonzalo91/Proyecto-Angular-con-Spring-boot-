@@ -10,6 +10,7 @@ import {Location} from '@angular/common';
 export class ContentHeaderComponent implements OnInit {
 
   @Input() title : string;
+  @Input() model : string;
 
   constructor( 
       private _router : Router,

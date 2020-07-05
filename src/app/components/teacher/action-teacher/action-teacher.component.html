@@ -1,0 +1,78 @@
+<app-content-header title="Maestros" model="maestros"></app-content-header>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-primary ">
+            <div class="card-header">
+                <h3 class="card-title">{{ isNew ? 'Crear Maestro' : 'Editar Maestro' }}</h3>                
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <form role="form">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label>Nombre</label>
+                                <input type="text" class="form-control" placeholder="...">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>No. empleado</label>
+                                <input type="text" class="form-control" placeholder="..." >
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label>Usuario</label>
+                                <input type="text" class="form-control" placeholder="...">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Contraseña</label>
+                                <input type="text" class="form-control" placeholder="..." >
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label>Tipo</label>
+                                <select class="custom-select">
+                                    <option>option 1</option>
+                                    <option>option 2</option>
+                                    <option>option 3</option>
+                                    <option>option 4</option>
+                                    <option>option 5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label>Estatus</label>
+                                <select class="custom-select">
+                                    <option>Activo</option>
+                                    <option>Inactivo</option>                                    
+                                </select>
+                            </div>
+                        </div>   
+                        <div class="col-sm-4">
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label class="text-white">.</label>
+                                <button class="btn btn-success w-100">{{ isNew ? 'Guardar' : 'Editar'}}</button>
+                            </div>
+                        </div>                        
+                    </div>                    
+                    
+                </form>
+            </div>
+            <!-- /.card-body -->
+        </div>
+    </div>
+</div>

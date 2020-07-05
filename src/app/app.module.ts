@@ -13,6 +13,11 @@ import { NavbarComponent } from './components/Shared/navbar/navbar.component';
 import { SidebarComponent } from './components/Shared/sidebar/sidebar.component';
 import { FooterComponent } from './components/Shared/footer/footer.component';
 import { ContentHeaderComponent } from './components/Shared/content-header/content-header.component';
+import { DeleteResourceComponent } from './components/Shared/delete-resource/delete-resource.component';
+import { ActionTeacherComponent } from './components/teacher/action-teacher/action-teacher.component';
+import { ActionGroupComponent } from './components/group/action-group/action-group.component';
+import { ActionSubjectComponent } from './components/subject/action-subject/action-subject.component';
+import { ActionStudentComponent } from './components/student/action-student/action-student.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +32,11 @@ import { ContentHeaderComponent } from './components/Shared/content-header/conte
     SidebarComponent,
     FooterComponent,
     ContentHeaderComponent,
+    DeleteResourceComponent,
+    ActionTeacherComponent,
+    ActionGroupComponent,
+    ActionSubjectComponent,
+    ActionStudentComponent,
     
   ],
   imports: [

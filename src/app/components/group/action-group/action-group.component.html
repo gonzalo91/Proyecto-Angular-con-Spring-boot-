@@ -1,0 +1,44 @@
+<app-content-header title="Grupos" model="grupos"></app-content-header>
+
+<div class="col-md-12">
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">{{ isNew ? "Guardar Grupo" : "Editar Grupo"}}</h3>            
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <form role="form">
+                                   
+                <div class="row">
+                    <div class="col-sm-4">
+                        <!-- text input -->
+                        <div class="form-group">
+                            <label>Clave Materia</label>
+                            <input type="text" class="form-control" placeholder="...">
+                        </div>
+                    </div>  
+                    <div class="col-sm-4">
+                        <!-- text input -->
+                        <div class="form-group">
+                            <label>Estatus</label>
+                            <select class="custom-select">
+                                <option>Todos</option>
+                                <option>Activo</option>
+                                <option>Inactivo</option>                                    
+                            </select>
+                        </div>
+                    </div>                        
+                    <div class="col-sm-4">
+                        <!-- text input -->
+                        <div class="form-group">
+                            <label class="text-white">.</label>
+                            <button class="btn btn-success w-100">{{ isNew ? "Guardar" : "Editar"}}</button>
+                        </div>
+                    </div>                        
+                </div>                    
+                
+            </form>
+        </div>
+        <!-- /.card-body -->
+    </div>
+</div>

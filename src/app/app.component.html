@@ -1,19 +1,27 @@
 
-<div class="wrapper">
 
-  <app-navbar></app-navbar>
 
-  <app-sidebar></app-sidebar>
+<ng-container *ngIf="isAuthenticated; else login">
+  <div class="wrapper" >
 
-  <div class="content-wrapper">    
-    <div class="content pt-3">      
-      <router-outlet></router-outlet>
-    </div>  
-  </div>
+    <app-navbar></app-navbar>
   
-
-  <app-footer></app-footer>
+    <app-sidebar></app-sidebar>
   
-</div>
+    <div class="content-wrapper">    
+      <div class="content pt-3">      
+        <router-outlet></router-outlet>
+      </div>  
+    </div>
+    
+  
+    <app-footer></app-footer>
+    
+  </div>  
+</ng-container>
+<ng-template #login>
+  <app-login></app-login>
+</ng-template>
+
 
 

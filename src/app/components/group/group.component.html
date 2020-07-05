@@ -1,4 +1,4 @@
-<app-content-header title="Grupos"></app-content-header>
+<app-content-header title="Grupos" model="grupos"></app-content-header>
 
 <div class="row">
     <div class="col-md-12">
@@ -68,12 +68,13 @@
                             <td>Update software</td>                            
                             <td><span class="badge bg-danger">55%</span></td>
                             <td>
-                                <button class="btn btn-success">
+                                
+                                <a [routerLink]="[ '/grupos', 'editar', 2 ]" class="btn btn-success">
                                     <i class="fas fa-pencil-alt"></i>
-                                </button> / 
-                                <button class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                </button> 
+                                </a> / 
+                                <app-delete-resource resource="group/delete/1">
+
+                                </app-delete-resource>
                             </td>
                         </tr>
                     </tbody>
