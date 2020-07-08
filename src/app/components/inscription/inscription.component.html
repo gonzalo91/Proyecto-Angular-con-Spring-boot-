@@ -1,0 +1,87 @@
+<app-content-header title="Inscripcion" ></app-content-header>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-primary collapsed-card ">
+            <div class="card-header">
+                <h3 class="card-title">Grupos Inscritos</h3> 
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                    </button>
+                </div>               
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table class="table table-striped mb-5">
+                    <thead>
+                        <tr>
+                            <th style="width: 10px">Grupo</th>                            
+                            <th>Materia</th>                            
+                            <th>Capacidad del grupo</th>                            
+                            <th>Accion</th>                                                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="subscribe_groups.length === 0">
+                            <td colspan="4"> Sin Materias Inscritas </td>
+                        </tr>
+                        <tr  *ngFor="let subscribe_group of subscribe_groups">
+                            <td>{{ subscribe_group.id }}</td>                                                        
+                            <td>{{ subscribe_group.subject.name }}</td>                            
+                            <td>
+                                {{ subscribe_group.students_qty }}
+                            </td>
+                            <td>                                                                
+                                <button (click)="unsuscribe(subscribe_group.id)" class="btn btn-danger">
+                                    <i class="fas fa-pencil-alt"></i> Dar de Baja
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+            <!-- /.card-body -->
+        </div>
+
+        <div class="card card-primary ">
+            <div class="card-header">
+                <h3 class="card-title">Grupos Disponibles</h3>                
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table class="table table-striped mb-5">
+                    <thead>
+                        <tr>
+                            <th style="width: 10px">Grupo</th>                            
+                            <th>Materia</th>                            
+                            <th>Capacidad del grupo</th>                            
+                            <th>Accion</th>                                                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="available_groups.length === 0">
+                            <td colspan="4"> Sin Materias Disponibles </td>
+                        </tr>
+                        <tr  *ngFor="let available_group of available_groups">
+                            <td>{{ available_group.id }}</td>                                                        
+                            <td>{{ available_group.subject.name }}</td>                            
+                            <td>
+                                {{ available_group.students_qty }}
+                            </td>
+                            <td>
+                                
+                                <button (click)="subscribe(available_group.id)" class="btn btn-success">
+                                    <i class="fas fa-pencil-alt"></i> Inscribir
+                                </button>  
+                                
+                            </td>
+                        </tr>                    
+                    </tbody>
+                </table>
+                
+            </div>
+            <!-- /.card-body -->
+        </div>
+    </div>
+</div>

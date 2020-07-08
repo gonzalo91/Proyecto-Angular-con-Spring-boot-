@@ -12,6 +12,7 @@ import { GroupComponent } from './components/group/group.component';
 import { LoginComponent } from './components/login/login.component';
 import { ActionTeacherComponent } from './components/teacher/action-teacher/action-teacher.component';
 import { TEACHER_ROUTES } from './components/teacher/teacher.routes';
+import { InscriptionComponent } from './components/inscription/inscription.component';
 
 
 const routes: Routes = [
@@ -20,8 +21,8 @@ const routes: Routes = [
   ...TEACHER_ROUTES,
   ...STUDENT_ROUTES,
   ...SUBJECT_ROUTES,
-  ...GROUP_ROUTES,  
-  {path :"inscripcion", component: HomeComponent, },
+  ...GROUP_ROUTES,    
+  {path :"inscripcion", component: InscriptionComponent, },
   { path: '**', pathMatch:"full",  redirectTo:""},
 ];
 

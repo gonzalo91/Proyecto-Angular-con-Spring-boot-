@@ -56,17 +56,22 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th style="width: 10px">#</th>                            
-                            <th>Clave</th>                            
+                            <th style="width: 10px">Grupo</th>                            
+                            <th>Materia</th>                            
                             <th>Estatus</th>                            
                             <th>Accion</th>                                                        
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1.</td>                                                        
-                            <td>Update software</td>                            
-                            <td><span class="badge bg-danger">55%</span></td>
+                        <tr *ngIf="groups.length === 0">
+                            <td colspan="4"> Sin Informacion </td>
+                        </tr>
+                        <tr *ngFor="let group of groups">
+                            <td>{{ group.id }}</td>                                                        
+                            <td>{{ group.subject.name }}</td>                            
+                            <td>
+                                <app-status-text [status]=group.status></app-status-text>
+                            </td>
                             <td>
                                 
                                 <a [routerLink]="[ '/grupos', 'editar', 2 ]" class="btn btn-success">
@@ -80,15 +85,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="card-footer clearfix">
-                <ul class="pagination pagination-sm m-0 float-right">
-                    <li class="page-item"><a class="page-link" href="#">«</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">»</a></li>
-                </ul>
-            </div>
+            
         </div>
     </div>
 </div>

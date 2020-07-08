@@ -79,16 +79,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1.</td>                            
-                            <td>Update software</td>
-                            <td>Update software</td>
+                        <tr *ngIf="students.length === 0">
+                            <td colspan="6"> Sin Informacion </td>
+                        </tr>
+                        <tr *ngFor="let student of students">
+                            <td>{{ student.id }}</td>                            
+                            <td>{{ student.user.name }}</td>
+                            <td>{{ student.user.username }}</td>
                             <td>
-                                <div class="progress progress-xs">
-                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                </div>
+                                {{ student.number }}
                             </td>
-                            <td><span class="badge bg-danger">55%</span></td>
+                            <td>
+                                <app-status-text [status]=student.user.status></app-status-text>
+                            </td>
                             <td>
                                 <a [routerLink]="[ '/alumnos', 'editar', 2 ]" class="btn btn-success">
                                     <i class="fas fa-pencil-alt"></i>
@@ -98,16 +101,7 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="card-footer clearfix">
-                <ul class="pagination pagination-sm m-0 float-right">
-                    <li class="page-item"><a class="page-link" href="#">«</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">»</a></li>
-                </ul>
-            </div>
+            </div>           
         </div>
     </div>
 </div>

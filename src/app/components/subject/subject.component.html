@@ -74,15 +74,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1.</td>                                                        
-                            <td>Update software</td>
+                        <tr *ngIf="subjects.length === 0">
+                            <td colspan="5"> Sin Informacion </td>
+                        </tr>
+                        <tr *ngFor="let subject of subjects">
+                            <td>{{ subject.id }}</td>                                                        
+                            <td>{{ subject.name }}</td>
                             <td>
-                                <div class="progress progress-xs">
-                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                </div>
+                                {{ subject.code }}
                             </td>
-                            <td><span class="badge bg-danger">55%</span></td>
+                            <td>
+                                <app-status-text [status]=subject.status></app-status-text>
+                            </td>
                             <td>
                                 
                                 <a [routerLink]="[ '/materias', 'editar', 2 ]" class="btn btn-success">

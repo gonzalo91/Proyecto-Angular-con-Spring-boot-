@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { GroupService } from 'src/app/services/group.service';
 
 @Component({
   selector: 'app-group',
@@ -8,11 +9,27 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class GroupComponent implements OnInit {
 
-  constructor(authService : AuthService) {
+  groups : any[] = []
+
+  constructor(authService : AuthService, private groupService : GroupService) {
     authService.redirectHomeIfNotAuthorized(["TEACHER"])
   }
 
   ngOnInit(): void {
+    this.getAll()
   }
+
+  getAll(){
+    
+    this.groupService.getAll()
+    .subscribe( (resp: any) => {
+      this.groups = resp;
+    })
+
+  }
+
+
+
+
 
 }

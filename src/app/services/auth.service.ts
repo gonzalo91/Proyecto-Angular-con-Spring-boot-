@@ -82,6 +82,7 @@ export class AuthService {
   }
 
   logOut(){
+    this.token = null;
     this.storageService.clear();
   }
 

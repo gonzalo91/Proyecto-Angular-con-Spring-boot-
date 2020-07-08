@@ -23,6 +23,7 @@ import { ActionGroupComponent } from './components/group/action-group/action-gro
 import { ActionSubjectComponent } from './components/subject/action-subject/action-subject.component';
 import { ActionStudentComponent } from './components/student/action-student/action-student.component';
 import { StatusTextComponent } from './components/Shared/status-text/status-text.component';
+import { InscriptionComponent } from './components/inscription/inscription.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { StatusTextComponent } from './components/Shared/status-text/status-text
     ActionSubjectComponent,
     ActionStudentComponent,
     StatusTextComponent,
+    InscriptionComponent,
     
   ],
   imports: [

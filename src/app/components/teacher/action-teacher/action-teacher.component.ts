@@ -95,7 +95,7 @@ export class ActionTeacherComponent implements OnInit, OnDestroy {
             "id"         : this.id,
             "username"   : values.username,
             "name"       : values.name,
-            "password"   : "cabrera69",
+            "new_password"   : values.password,
             "status"     : values.status
         } 
       };
