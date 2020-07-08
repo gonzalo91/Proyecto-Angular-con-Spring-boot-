@@ -12,26 +12,26 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <form role="form">
+                <form role="form" [formGroup]="filterForm">
                     <div class="row">
                         <div class="col-sm-4">
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Nombre</label>
-                                <input type="text" class="form-control" placeholder="...">
+                                <input formControlName="name" type="text" class="form-control" placeholder="...">
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Usuario</label>
-                                <input type="text" class="form-control" placeholder="...">
+                                <input type="text" formControlName="username" class="form-control" placeholder="...">
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>No. empleado</label>
-                                <input type="text" class="form-control" placeholder="..." >
+                                <input formControlName="n_employee" type="text" class="form-control" placeholder="..." >
                             </div>
                         </div>
                     </div>                    
@@ -39,13 +39,12 @@
                         <div class="col-sm-4">
                             <!-- text input -->
                             <div class="form-group">
-                                <label>Tipo</label>
-                                <select class="custom-select">
-                                    <option>option 1</option>
-                                    <option>option 2</option>
-                                    <option>option 3</option>
-                                    <option>option 4</option>
-                                    <option>option 5</option>
+                                <label>Tipo</label>                                
+                                <select formControlName="type" class="custom-select">
+                                    <option value="">.:: Todos ::.</option>
+                                    <option value="1">Maestro General</option>
+                                    <option value="2">Maestro Directo</option>
+                                    <option value="3">Coordinador</option>    
                                 </select>
                             </div>
                         </div>
@@ -53,14 +52,18 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Estatus</label>
-                                <input type="text" class="form-control" placeholder="...">
+                                <select class="custom-select" formControlName="status">
+                                    <option value="">.:: Todas ::.</option>
+                                    <option value="1">Activo</option>
+                                    <option value="2">Inactivo</option>
+                                </select>
                             </div>
                         </div>   
                         <div class="col-sm-4">
                             <!-- text input -->
                             <div class="form-group">
                                 <label class="text-white">.</label>
-                                <button class="btn btn-success w-100">Buscar</button>
+                                <button (click)="filter()" class="btn btn-success w-100">Buscar</button>
                             </div>
                         </div>                        
                     </div>                    
@@ -89,37 +92,30 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1.</td>
-                            <td>Update software</td>
-                            <td>Update software</td>
-                            <td>Update software</td>
+                        <tr *ngIf="teachers.length === 0">
+                            <td colspan="7"> Sin Informacion </td>
+                        </tr>
+                        <tr *ngFor="let teacher of teachers">
+                            <td>{{ teacher.id }}</td>
+                            <td>{{ teacher.user.name }}</td>
+                            <td>{{ teacher.user.username }}</td>
+                            <td>{{ teacher.n_employee }}</td>
                             <td>
-                                <div class="progress progress-xs">
-                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                </div>
+                                {{ teacher.type.description }}
                             </td>
-                            <td><span class="badge bg-danger">55%</span></td>
                             <td>
-                                
-                                <a [routerLink]="[ '/maestros', 'editar', 2 ]" class="btn btn-success text-white">
+                                <app-status-text [status]=teacher.user.status></app-status-text>
+                            </td>
+                            <td>                                
+                                <a [routerLink]="[ '/maestros', 'editar', teacher.id ]" class="btn btn-success text-white">
                                     <i class="fas fa-pencil-alt"></i>
                                 </a> / 
-                                <app-delete-resource resource="teacher/delete/1"></app-delete-resource>
+                                <app-delete-resource (deleted)="delete(teacher.id)"></app-delete-resource>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="card-footer clearfix">
-                <ul class="pagination pagination-sm m-0 float-right">
-                    <li class="page-item"><a class="page-link" href="#">«</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">»</a></li>
-                </ul>
-            </div>
+            </div>            
         </div>
     </div>
 </div>

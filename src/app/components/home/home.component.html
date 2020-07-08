@@ -1,5 +1,5 @@
 <div class="row pt-3">
-    <div class="col-md-12">
+    <div class="col-md-12" *ngIf="isAdmin">
         <div class="card-group">
             <div class="card">              
               <div class="card-body">
@@ -20,7 +20,7 @@
         </div>
     
     </div>   
-    <div class="col-md-12">
+    <div class="col-md-12" *ngIf="isTeacher">
         <div class="card-group">
             <div class="card">              
               <div class="card-body">
@@ -41,7 +41,7 @@
         </div>
     
     </div>  
-    <div class="col-md-6 offset-md-3">
+    <div class="col-md-6 offset-md-3 mb-2" *ngIf="isStudent">
         <div class="card-group">
             <div class="card">              
               <div class="card-body">

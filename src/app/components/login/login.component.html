@@ -8,27 +8,34 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
 
-                <form action="../../index3.html" method="post">
+                <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Usuario">
+                        <input formControlName="username" type="text" class="form-control" placeholder="Usuario">                                                
+                        
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
                             </div>
                         </div>
                     </div>
+                    <small *ngIf="loginForm.get('username').errors && loginForm.get('username').dirty" class="form-text  text-danger">
+                        Este requerido y no debe tener los siguientes caracteres:  “,’,<,>,&,=,*.
+                    </small>                        
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" class="form-control" formControlName="password" placeholder="Password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
                     </div>
+                    <small *ngIf="loginForm.get('password').errors && loginForm.get('password').dirty" class="form-text  text-danger">
+                        Este requerido y no debe tener los siguientes caracteres:  “,’,<,>,&,=,*.
+                    </small>                        
                     <div class="row">
                                                 
                         <div class="col-12">
-                            <button  type="button" class="btn btn-primary btn-block">Sign In</button>
+                            <button  type="submit" [disabled]="loginForm.invalid" class="btn btn-primary btn-block">Iniciar Sesion</button>
                         </div>
                         
                     </div>

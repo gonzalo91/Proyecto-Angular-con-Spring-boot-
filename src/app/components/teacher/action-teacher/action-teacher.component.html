@@ -8,32 +8,44 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <form role="form">
+                <form [formGroup]="form" (ngSubmit)="save()">
                     <div class="row">
                         <div class="col-sm-8">
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Nombre</label>
-                                <input type="text" class="form-control" placeholder="...">
+                                <input formControlName="name" type="text" class="form-control" placeholder="...">
+                                <small *ngIf="form.get('name').errors && form.get('name').dirty" class="form-text  text-danger">
+                                    Este requerido y no debe tener los siguientes caracteres:  “,’,<,>,&,=,*.
+                                </small>  
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>No. empleado</label>
-                                <input type="text" class="form-control" placeholder="..." >
+                                <input type="text" formControlName="n_employee" class="form-control" placeholder="..." >
+                                <small *ngIf="form.get('n_employee').errors && form.get('n_employee').dirty" class="form-text  text-danger">
+                                    Este requerido y no debe tener los siguientes caracteres:  “,’,<,>,&,=,*.
+                                </small>  
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Usuario</label>
-                                <input type="text" class="form-control" placeholder="...">
+                                <input type="text" formControlName="username" class="form-control" placeholder="...">
+                                <small *ngIf="form.get('username').errors && form.get('username').dirty" class="form-text  text-danger">
+                                    Este requerido y no debe tener los siguientes caracteres:  “,’,<,>,&,=,*.
+                                </small>  
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Contraseña</label>
-                                <input type="text" class="form-control" placeholder="..." >
+                                <input type="password"  formControlName="password" class="form-control" placeholder="..." >
+                                <small *ngIf="form.get('password').errors && form.get('password').dirty" class="form-text  text-danger">
+                                    Este requerido y no debe tener los siguientes caracteres:  “,’,<,>,&,=,*.
+                                </small>  
                             </div>
                         </div>
                     </div>                    
@@ -42,30 +54,34 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Tipo</label>
-                                <select class="custom-select">
-                                    <option>option 1</option>
-                                    <option>option 2</option>
-                                    <option>option 3</option>
-                                    <option>option 4</option>
-                                    <option>option 5</option>
+                                <select formControlName="type" class="custom-select">                                    
+                                    <option value="1">Maestro General</option>
+                                    <option value="2">Maestro Directo</option>
+                                    <option value="3">Coordinador</option> 
                                 </select>
+                                <small *ngIf="form.get('type').errors && form.get('type').dirty" class="form-text  text-danger">
+                                    Este requerido y no debe tener los siguientes caracteres:  “,’,<,>,&,=,*.
+                                </small>  
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Estatus</label>
-                                <select class="custom-select">
-                                    <option>Activo</option>
-                                    <option>Inactivo</option>                                    
+                                <select formControlName="status" class="custom-select">
+                                    <option value="1">Activo</option>
+                                    <option value="2">Inactivo</option>                                    
                                 </select>
+                                <small *ngIf="form.get('status').errors && form.get('status').dirty" class="form-text  text-danger">
+                                    Este requerido y no debe tener los siguientes caracteres:  “,’,<,>,&,=,*.
+                                </small>  
                             </div>
                         </div>   
                         <div class="col-sm-4">
                             <!-- text input -->
                             <div class="form-group">
                                 <label class="text-white">.</label>
-                                <button class="btn btn-success w-100">{{ isNew ? 'Guardar' : 'Editar'}}</button>
+                                <button type="submit" (save)="save()" [disabled]="form.invalid" class="btn btn-success w-100">{{ isNew ? 'Guardar' : 'Editar'}}</button>
                             </div>
                         </div>                        
                     </div>                    

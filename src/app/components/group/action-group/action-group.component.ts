@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-action-group',
@@ -10,10 +11,10 @@ export class ActionGroupComponent implements OnInit ,OnDestroy {
   sub: any;
   id: number;
   isNew : Boolean;
-  
-  constructor(private route: ActivatedRoute) { 
-    
-  }
+
+  constructor(authService : AuthService, private route: ActivatedRoute) {
+    authService.redirectHomeIfNotAuthorized(["TEACHER"])
+  }  
 
   ngOnInit(): void {
     this.sub = this.route.params.subscribe(params => {

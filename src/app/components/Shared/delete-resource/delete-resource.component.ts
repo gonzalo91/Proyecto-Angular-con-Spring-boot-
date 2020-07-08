@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 
 import Swal from 'sweetalert2'
 
@@ -12,20 +12,21 @@ declare var $:any;
 export class DeleteResourceComponent implements OnInit {
   @ViewChild('modal') modal;
 
-  @Input() resource : string;
+  @Output() deleted = new EventEmitter()
+  
 
   constructor() { }
 
-  askForDelete(){
-    console.log(this.resource);
-    
+  askForDelete(){    
     $(this.modal.nativeElement).modal() 
   }
 
   delete() : void{
+    this.deleted.emit();
+
     $(this.modal.nativeElement).modal('hide') 
 
-    //Todo: Api request to Delete | throw event to parent component
+    
     Swal.fire(
       'Eliminado!',
       'Se ha eliminado correctamente.',

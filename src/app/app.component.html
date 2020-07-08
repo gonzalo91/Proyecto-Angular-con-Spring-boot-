@@ -4,7 +4,7 @@
 <ng-container *ngIf="isAuthenticated; else login">
   <div class="wrapper" >
 
-    <app-navbar></app-navbar>
+    <app-navbar (logOut)="logOut()"></app-navbar>
   
     <app-sidebar></app-sidebar>
   
@@ -20,7 +20,7 @@
   </div>  
 </ng-container>
 <ng-template #login>
-  <app-login></app-login>
+  <app-login (hasLogged)="checkAuthentication()"></app-login>
 </ng-template>
 
 
